@@ -4,6 +4,7 @@ import config from './utils/config';
 import './db/connect';
 import ShortUrl from './models/shortUrl';
 import generateShortCode from './utils/generateShortCode';
+import { createShortUrl, retrieveUrl } from './services/shortUrl.service'
 
 const app = express()
 
@@ -17,8 +18,6 @@ app.listen(config.PORT, () => {
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.json({ message: "Hola Mundo" })
 });
-
-console.log(generateShortCode())
 
 /*
 app.get('/shorter', (req, res) => {
@@ -38,3 +37,11 @@ app.get('/shorter', (req, res) => {
 })
 */
 
+createShortUrl('https://www.google.com')
+    .then(() => console.log('SHORT URL CREADA CORRECTAMENTE'))
+    .catch(err => console.error('ERROR:', err));
+
+
+retrieveUrl('xd5149')
+    .then(() => console.log('URL RETRIVED CORRECTAMENTE'))
+    .catch((err) => console.error(`Error: ${err}`))
