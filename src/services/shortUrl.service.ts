@@ -1,10 +1,9 @@
-import { set } from 'mongoose';
 import ShortUrl from '../models/shortUrl';
 import generateShortCode from '../utils/generateShortCode';
 import logger from "../utils/logger";
 
 //Create Short URL
-export const createShortUrl = async (url: string) => { // usare req.body.url
+const createShortUrl = async (url: string) => { // usare req.body.url
     try {
 
         let shortCode: string | undefined = generateShortCode()
@@ -20,7 +19,9 @@ export const createShortUrl = async (url: string) => { // usare req.body.url
             shortCode: shortCode
         })
 
-        await shortUrl.save();
+        const data = await shortUrl.save();
+        logger.info(`Created short url`)
+        return data
 
     } catch (error) {
         logger.error(`Error creating short URL: ${error}`);
@@ -29,7 +30,7 @@ export const createShortUrl = async (url: string) => { // usare req.body.url
 }
 
 //Retrieve Original URL
-export const retrieveUrl = async (shortCode: string) => { // usare req.param.shortCode
+const retrieveUrl = async (shortCode: string) => { // usare req.param.shortCode
     try {
 
         const result = await ShortUrl.findOneAndUpdate(
@@ -40,7 +41,6 @@ export const retrieveUrl = async (shortCode: string) => { // usare req.param.sho
 
         return result;
 
-
     } catch (error) {
         logger.error(`Error serching for the previus URL: ${error}`);
         throw error;
@@ -48,7 +48,7 @@ export const retrieveUrl = async (shortCode: string) => { // usare req.param.sho
 }
 
 //Update Short URL
-export const updateShortUrl = async (shortCode: string, url: string) => { // usare req.param.shortCode, req.body.url
+const updateShortUrl = async (shortCode: string, url: string) => { // usare req.param.shortCode, req.body.url
     try {
 
         const newUrl: string = url // comprobare que no sea undefinde en el controlador
@@ -62,16 +62,37 @@ export const updateShortUrl = async (shortCode: string, url: string) => { // usa
         return result
 
     } catch (error) {
-
+        logger.error(`Error updating the new URL: ${error}`);
+        throw error;
     }
 }
 
 //Delete Short URL
-export const delateShortUrl = async () => {
+const delateShortUrl = async (shortCode: string) => { //usare req.param.shortCode
+    try {
 
+        const result = await ShortUrl.deleteOne({ shortCode })
+
+        return result
+
+    } catch (error) {
+        logger.error(`Error traying to delate the shorturl (${shortCode}: ${error})`)
+        throw error
+    }
 }
 
 //Get URL Statistics
-export const UrlStatistics = async () => {
+const urlStatistics = async (shortCode: string) => { //usare req.param.shortCode
+    try {
 
+        const result = await ShortUrl.findOne({ shortCode })
+
+        return result
+
+    } catch (error) {
+        logger.error(`Error traying to acces to accesCount: ${error})`)
+        throw error
+    }
 }
+
+export default { createShortUrl, retrieveUrl, updateShortUrl, delateShortUrl, urlStatistics }
