@@ -178,4 +178,4 @@ This project is licensed under the MIT License.
 
 ---
 
-Built with ❤️ for the backend community and as part of the [roadmap.sh Backend Projects](https://roadmap.sh/backend/projects).
+Built with ❤️ for the backend community and as part of the https://roadmap.sh/projects/url-shortening-service.
