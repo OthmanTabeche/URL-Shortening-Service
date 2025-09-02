@@ -400,18 +400,4 @@ This project is licensed under the **ISC License** - see the [LICENSE](LICENSE) 
 - Inspired by modern URL shortening services
 - Thanks to the open-source community for the amazing tools
 
-## 📞 Support
-
-If you have any questions or need help:
-
-- **Issues**: [GitHub Issues](https://github.com/your-username/url-shortening-service/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/url-shortening-service/discussions)
-- **Email**: your-email@example.com
-
----
-
-<div align="center">
-
-[⭐ Star this repo](https://github.com/your-username/url-shortening-service) | [🐛 Report Bug](https://github.com/your-username/url-shortening-service/issues) | [💡 Request Feature](https://github.com/your-username/url-shortening-service/issues)
-
 </div>
