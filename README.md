@@ -6,7 +6,7 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-6.18+-green.svg)](https://www.mongodb.com/)
 [![License](https://img.shields.io/badge/License-ISC-yellow.svg)](LICENSE)
 
-A robust, scalable, and production-ready URL shortening service built with modern web technologies. This service provides a complete REST API for creating, managing, and tracking short URLs with comprehensive analytics and validation.
+A scalable, and production-ready URL shortening service built with modern web technologies. This service provides a complete REST API for creating, managing, and tracking short URLs with comprehensive analytics and validation.
 
 ## ✨ Features
 
@@ -411,8 +411,6 @@ If you have any questions or need help:
 ---
 
 <div align="center">
-
-**Built with ❤️ for the developer community**
 
 [⭐ Star this repo](https://github.com/your-username/url-shortening-service) | [🐛 Report Bug](https://github.com/your-username/url-shortening-service/issues) | [💡 Request Feature](https://github.com/your-username/url-shortening-service/issues)
 
